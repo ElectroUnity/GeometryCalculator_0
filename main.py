@@ -1,5 +1,6 @@
 import sys
 
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication
 from qfluentwidgets import FluentWindow, FluentTranslator, FluentIcon, NavigationItemPosition, MessageBox
 
@@ -38,11 +39,14 @@ class Window(FluentWindow):
         w.exec()
 
 
-app = QApplication(sys.argv)
-# 国际化
-# 为啥translator不生效啊，我不理解啊啊啊啊啊
-translator = FluentTranslator()
-app.installTranslator(translator)
-w = Window()
-w.show()
-sys.exit(app.exec())
+if __name__ == '__main__':
+    # 启用高分辨率缩放 enable hidpi scale
+    QApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.Ceil)
+    app = QApplication(sys.argv)
+    # 国际化
+    # 为啥translator不生效啊，我不理解啊啊啊啊啊
+    translator = FluentTranslator()
+    app.installTranslator(translator)
+    w = Window()
+    w.show()
+    sys.exit(app.exec())
