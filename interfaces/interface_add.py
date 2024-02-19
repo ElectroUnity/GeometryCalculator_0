@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHeaderView
-from qfluentwidgets import MessageBoxBase
+from qfluentwidgets import MessageBoxBase, toggleTheme
 from sympy import sqrt, Eq
 
 from .ui_add import Ui_Add
@@ -53,6 +53,8 @@ class InterfaceAdd(QWidget, Ui_Add):
         self.ListWidget_conditions.setColumnCount(2)
         self.ListWidget_conditions.setHorizontalHeaderLabels(['条件', '方程'])
         self.init_tableview(self.ListWidget_conditions)
+        # 切换主题
+        self.Theme_toggle.clicked.connect(self.change_theme)
 
     def add_point_and_show(self, point: Point):
         """
@@ -172,6 +174,10 @@ class InterfaceAdd(QWidget, Ui_Add):
             # 两边相等
             eq = Eq(left, right)
             self.add_condition_and_show(eq, f'{w.wid.LineEdit_1.text()}={w.wid.LineEdit_2.text()}')
+
+    @staticmethod
+    def change_theme(self):
+        toggleTheme()
 
 
 def get_widget(Ui):
