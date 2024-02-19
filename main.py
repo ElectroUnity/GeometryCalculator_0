@@ -2,8 +2,8 @@ import sys
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication
-from qfluentwidgets import FluentWindow, FluentTranslator, FluentIcon, NavigationItemPosition, MessageBox
-
+from qfluentwidgets import (FluentWindow, FluentTranslator, FluentIcon, NavigationItemPosition,
+                            MessageBox, Theme, setTheme)
 import interfaces
 
 __version__ = '1.1'
@@ -42,6 +42,9 @@ class Window(FluentWindow):
 if __name__ == '__main__':
     # 启用高分辨率缩放 enable hidpi scale
     QApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.Ceil)
+    # 主题默认跟随系统设置
+    setTheme(theme=Theme.AUTO)
+
     app = QApplication(sys.argv)
     # 国际化
     # 为啥translator不生效啊，我不理解啊啊啊啊啊

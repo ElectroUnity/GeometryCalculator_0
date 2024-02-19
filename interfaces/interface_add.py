@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHeaderView
-from qfluentwidgets import MessageBoxBase
+from qfluentwidgets import MessageBoxBase, toggleTheme
 from sympy import sqrt, Eq
 
 from .ui_add import Ui_Add
@@ -55,6 +55,8 @@ class InterfaceAdd(QWidget, Ui_Add):
         self.init_tableview(self.ListWidget_conditions)
         # 删除点/条件
         self.PushButton_delete.clicked.connect(self.delete)
+        # 切换主题
+        self.Theme_toggle.clicked.connect(self.change_theme)
 
     def add_point_and_show(self, point: Point):
         """
@@ -202,6 +204,10 @@ class InterfaceAdd(QWidget, Ui_Add):
                     self.condition_cnt -= 1
                     self.ListWidget_conditions.setRowCount(self.condition_cnt)
                     break
+
+    @staticmethod
+    def change_theme(self):
+        toggleTheme()
 
 
 def get_widget(Ui):
