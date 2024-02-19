@@ -43,7 +43,7 @@ jobs:
           include-data-files: interfaces/help.md=interfaces/help.md
           nofollow-import-to: Pillow,PIL,numpy
           output-file: GeometryCalculator
-          disable-console: true
+          disable-console: false
           company-name: 几何计算器开发组
           product-name: 几何计算器
           file-version: ${{ github.event.inputs.version }}
