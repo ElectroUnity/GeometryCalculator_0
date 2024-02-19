@@ -39,6 +39,7 @@ jobs:
           script-name: main.py
           standalone: true
           enable-plugins: pyqt6,matplotlib
+          disable-plugins: options-nanny
           include-data-files: interfaces/help.md=interfaces/help.md
           nofollow-import-to: Pillow,PIL,numpy
           output-file: GeometryCalculator
