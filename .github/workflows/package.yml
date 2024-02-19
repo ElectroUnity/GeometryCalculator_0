@@ -36,11 +36,12 @@ jobs:
         uses: Nuitka/Nuitka-Action@main
         with:
           nuitka-version: main
-          script-name: GeometryCalculator
+          script-name: main.py
           standalone: true
           enable-plugins: pyqt6,matplotlib
           include-data-files: interfaces/help.md=interfaces/help.md
           nofollow-import-to: Pillow,PIL,numpy
+          output-file: GeometryCalculator
           disable-console: true
           company-name: 几何计算器开发组
           product-name: 几何计算器
