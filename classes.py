@@ -11,9 +11,9 @@ class Point:
         """
         self.name = name
         if x is None:
-            x = sympy.Symbol(f'x{self.name}')
+            x = sympy.Symbol(f'x_{self.name}')
         if y is None:
-            y = sympy.Symbol(f'y{self.name}')
+            y = sympy.Symbol(f'y_{self.name}')
         self.x = x
         self.y = y
 

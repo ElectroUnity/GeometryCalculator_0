@@ -31,7 +31,7 @@ class Window(FluentWindow):
         self.addSubInterface(self.ui_help, FluentIcon.HELP, '帮助与关于', NavigationItemPosition.BOTTOM)
 
         # 报错不崩溃
-        sys.excepthook = self.error
+        # sys.excepthook = self.error
 
     def error(self, etype: type, value: Exception, tb):
         """处理报错的函数"""
