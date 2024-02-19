@@ -39,7 +39,7 @@ jobs:
           script-name: GeometryCalculator
           standalone: true
           enable-plugins: pyqt6,matplotlib
-          include-data-files: --include-data-file=interfaces/help.md=interfaces/help.md
+          include-data-files: interfaces/help.md=interfaces/help.md
           nofollow-import-to: Pillow,PIL,numpy
           disable-console: true
           company-name: 几何计算器开发组
