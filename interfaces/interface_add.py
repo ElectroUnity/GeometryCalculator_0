@@ -26,10 +26,10 @@ class InterfaceAdd(QWidget, Ui_Add):
 
         # 连接信号与槽
         self.connect()
-        
+
         self.point_cnt = 0
         self.condition_cnt = 0
-        
+
     def init_tableview(self, tableview):
         tableview.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         tableview.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Fixed)
@@ -53,6 +53,8 @@ class InterfaceAdd(QWidget, Ui_Add):
         self.ListWidget_conditions.setColumnCount(2)
         self.ListWidget_conditions.setHorizontalHeaderLabels(['条件', '方程'])
         self.init_tableview(self.ListWidget_conditions)
+        # 删除点/条件
+        self.PushButton_delete.clicked.connect(self.delete)
 
     def add_point_and_show(self, point: Point):
         """
@@ -172,6 +174,34 @@ class InterfaceAdd(QWidget, Ui_Add):
             # 两边相等
             eq = Eq(left, right)
             self.add_condition_and_show(eq, f'{w.wid.LineEdit_1.text()}={w.wid.LineEdit_2.text()}')
+
+    def delete(self):
+        """删除点/条件的槽函数"""
+        to_del = self.LineEdit_delete.text()
+        # 删除点
+        if to_del in self.w.points.keys():
+            del self.w.points[to_del]
+            # 删除显示
+            for i in range(self.point_cnt):
+                now = self.ListWidget_points.item(i, 0).text()
+                if to_del == now:
+                    self.ListWidget_points.removeRow(i)
+                    break
+            # 删除最后一行
+            self.point_cnt -= 1
+            self.ListWidget_points.setRowCount(self.point_cnt)
+        else:
+            # 删除条件
+            for i in range(self.condition_cnt):
+                now = self.ListWidget_conditions.item(i, 0).text()
+                if to_del == now:
+                    self.w.conditions.pop(i)
+                    # 删除显示
+                    self.ListWidget_conditions.removeRow(i)
+                    # 删除最后一行
+                    self.condition_cnt -= 1
+                    self.ListWidget_conditions.setRowCount(self.condition_cnt)
+                    break
 
 
 def get_widget(Ui):
