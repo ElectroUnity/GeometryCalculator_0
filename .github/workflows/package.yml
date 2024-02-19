@@ -1,4 +1,4 @@
-name: 打包几何计算器-win
+name: 打包几何计算器
 
 on:
   workflow_dispatch:
