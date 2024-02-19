@@ -50,6 +50,7 @@ jobs:
           product-version: ${{ github.event.inputs.version }}
           file-description: 几何计算器
           copyright: "Copyright 几何计算器开发组. All right reserved."
+          macos-create-app-bundle: true
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
