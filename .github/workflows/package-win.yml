@@ -26,7 +26,7 @@ jobs:
 
       - name: 用Nuitka编译
         run: |
-          nuitka --standalone --mingw64 --enable-plugin=pyqt6 --windows-disable-console --lto=no --remove-output --assume-yes-for-download --product-name=几何计算器 --output-dir=out --file-version=${{ github.event.inputs.version }} --product-version=${{ github.event.inputs.version }} --file-description=几何计算器 --copyright="Copyright MC着火的冰块. All right reserved." --show-progress --show-memory --nofollow-import-to=Pillow,PIL,numpy --include-data-file=./interfaces/help.md=./interfaces/help.md main.py -o GeometryCalculator.exe
+          nuitka --standalone --mingw64 --enable-plugin=pyqt6,matplotlib --windows-disable-console --lto=no --remove-output --assume-yes-for-download --product-name=几何计算器 --output-dir=out --file-version=${{ github.event.inputs.version }} --product-version=${{ github.event.inputs.version }} --file-description=几何计算器 --copyright="Copyright MC着火的冰块. All right reserved." --show-progress --show-memory --nofollow-import-to=Pillow,PIL,numpy --include-data-file=./interfaces/help.md=./interfaces/help.md main.py -o GeometryCalculator.exe
 
       - name: 上传编译好的文件
         uses: actions/upload-artifact@v2
