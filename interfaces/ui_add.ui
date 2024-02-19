@@ -64,10 +64,20 @@
    </item>
    <item row="0" column="1">
     <layout class="QGridLayout" name="gridLayout_4">
-     <item row="0" column="0">
-      <widget class="TitleLabel" name="TitleLabel_2">
+     <item row="0" column="3">
+      <widget class="CheckBox" name="CheckBox_pre_simplify">
        <property name="text">
-        <string>条件</string>
+        <string>预化简</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="4">
+      <widget class="PushButton" name="PushButton_vertical">
+       <property name="text">
+        <string>垂直</string>
        </property>
       </widget>
      </item>
@@ -84,35 +94,28 @@
        </property>
       </spacer>
      </item>
-     <item row="1" column="0" colspan="3">
+     <item row="1" column="0" colspan="4">
       <widget class="PushButton" name="PushButton_parallel">
        <property name="text">
         <string>平行</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0" colspan="3">
-      <widget class="PushButton" name="PushButton_vertical">
-       <property name="text">
-        <string>垂直</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0" colspan="3">
-      <widget class="PushButton" name="PushButton_eq">
-       <property name="text">
-        <string>等式</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="3">
+     <item row="4" column="0" colspan="4">
       <widget class="SubtitleLabel" name="SubtitleLabel_2">
        <property name="text">
         <string>已有的条件（方程）：</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="0" colspan="3">
+     <item row="0" column="0">
+      <widget class="TitleLabel" name="TitleLabel_2">
+       <property name="text">
+        <string>条件</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="4">
       <widget class="CardWidget" name="CardWidget_2">
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
@@ -121,13 +124,17 @@
        </layout>
       </widget>
      </item>
-     <item row="0" column="2">
-      <widget class="CheckBox" name="CheckBox_pre_simplify">
+     <item row="3" column="0" colspan="4">
+      <widget class="PushButton" name="PushButton_eq">
        <property name="text">
-        <string>预化简</string>
+        <string>等式</string>
        </property>
-       <property name="checked">
-        <bool>true</bool>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="TransparentPushButton" name="Theme_toggle">
+       <property name="text">
+        <string>切换主题</string>
        </property>
       </widget>
      </item>
@@ -165,6 +172,11 @@
   <customwidget>
    <class>TableWidget</class>
    <extends>QTableWidget</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>TransparentPushButton</class>
+   <extends>QPushButton</extends>
    <header>qfluentwidgets</header>
   </customwidget>
  </customwidgets>
