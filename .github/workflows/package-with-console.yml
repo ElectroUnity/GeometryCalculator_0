@@ -41,7 +41,6 @@ jobs:
           enable-plugins: pyqt6,matplotlib
           disable-plugins: options-nanny
           include-data-files: interfaces/help.md=interfaces/help.md
-          nofollow-import-to: Pillow,PIL,numpy
           output-file: GeometryCalculator
           disable-console: false
           company-name: 几何计算器开发组
@@ -50,6 +49,7 @@ jobs:
           product-version: ${{ github.event.inputs.version }}
           file-description: 几何计算器
           copyright: "Copyright 几何计算器开发组. All right reserved."
+          macos-create-app-bundle: false
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
